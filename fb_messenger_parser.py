@@ -56,7 +56,10 @@ class Parser(HTMLParser):
             contact = self.participants[self.previousContactIndex]
             contact.messages += 1
             self.globalTotal += 1
-            wordlist = data.lower.split() if ignoreCase else data.split()
+            if ignoreCase:
+                wordlist = data.lower().split()
+            else:
+                wordlist = data.split()
             for foundWord in wordlist:
                 if foundWord not in contact.words:
                     contact.words[foundWord] = 1
@@ -72,8 +75,10 @@ if __name__ == "__main__":
     userQuit = False
     while not userQuit:
         ignoreCase = False
-        if input("Treat all words as lowercase? [Y/N]: ").lower == 'y':
+        caseChoice = input("Treat all words as lowercase? [Y/N]: ")
+        if caseChoice.lower() == "y":
             ignoreCase = True
+            print("Ignoring cases of words.")
         threshold = input("Exclude word frequencies under: ")
         while not threshold.isnumeric():
             threshold = input("Please enter a number: ")
