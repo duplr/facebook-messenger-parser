@@ -1,6 +1,6 @@
 # facebook-messenger-parser
 
-A Python script that parses a given Facebook conversation archive .html file into a .csv file. The generated .csv file is in the formatted as `username,word,frequency`. Downloading your Facebook data archive is necessary.
+A Python script that parses a given Facebook conversation archive .html file into a .csv file. The generated .csv file formatted as `username,word,frequency`. Downloading your Facebook data archive is necessary.
 
 A threshold can be set to exclude all words with frequencies lower than it, which can be helpful if you don't care about words that were used once or twice.
 
